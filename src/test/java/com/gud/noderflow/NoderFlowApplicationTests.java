@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //@WebMvcTest(controllers = TreeSearchController.class) - partial load of controller
 //@RunWith(SpringRunner.class) ?????
 @SpringBootTest
-class TemplateApplicationTests {
+class NoderFlowApplicationTests {
 
     @Autowired
     private ApplicationContext applicationContext;

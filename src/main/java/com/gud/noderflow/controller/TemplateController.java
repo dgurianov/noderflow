@@ -18,41 +18,41 @@ import java.util.List;
 @Slf4j
 public class TemplateController {
 
-    @Autowired
-    TemplateEntityService service;
-
-    @RequestMapping(
-            value = EndpointURLs.TEST_STRING,
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public String testString() {
-        return "{ \"value\" : \"Test string\"}";
-    }
-
-
-    @RequestMapping(
-            value = EndpointURLs.TEMPLATE_ENTITIES,
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<TemplateAttributes> getTemplateEntities(){
-        return service.getAllEntities();
-    }
-
-    @RequestMapping(
-            value = EndpointURLs.TEMPLATE_ENTITIES,
-            method = RequestMethod.GET,
-            params = {"id"},
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public TemplateAttributes getEntityById(@RequestParam("id") String id){
-        return service.getEntityById(id);
-    }
-
-    @RequestMapping(
-            value = EndpointURLs.TEMPLATE_ENTITIES,
-            method = RequestMethod.PUT,
-            produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
-    public List<TemplateAttributes> postTemplateEntities(@RequestBody List<TemplateAttributes> request){
-        return service.storeAllEntities(request);
-    }
+//    @Autowired
+//    TemplateEntityService service;
+//
+//    @RequestMapping(
+//            value = EndpointURLs.TEST_STRING,
+//            method = RequestMethod.GET,
+//            produces = MediaType.APPLICATION_JSON_VALUE)
+//    public String testString() {
+//        return "{ \"value\" : \"Test string\"}";
+//    }
+//
+//
+//    @RequestMapping(
+//            value = EndpointURLs.TEMPLATE_ENTITIES,
+//            method = RequestMethod.GET,
+//            produces = MediaType.APPLICATION_JSON_VALUE)
+//    public List<TemplateAttributes> getTemplateEntities(){
+//        return service.getAllEntities();
+//    }
+//
+//    @RequestMapping(
+//            value = EndpointURLs.TEMPLATE_ENTITIES,
+//            method = RequestMethod.GET,
+//            params = {"id"},
+//            produces = MediaType.APPLICATION_JSON_VALUE)
+//    public TemplateAttributes getEntityById(@RequestParam("id") String id){
+//        return service.getEntityById(id);
+//    }
+//
+//    @RequestMapping(
+//            value = EndpointURLs.TEMPLATE_ENTITIES,
+//            method = RequestMethod.PUT,
+//            produces = MediaType.APPLICATION_JSON_VALUE,
+//            consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public List<TemplateAttributes> postTemplateEntities(@RequestBody List<TemplateAttributes> request){
+//        return service.storeAllEntities(request);
+//    }
 }

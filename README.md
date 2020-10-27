@@ -8,7 +8,8 @@ Application with configurable REST API  that simulates flow of activities.
 #####Api requirements
 
 1. Data
-- Create a user with all details
+- Create a user with all details:  
+POST /users with payload
 - Create bulk amount of users with details
 - Get all users or part of their details
 - Get simulation history
@@ -40,7 +41,7 @@ Application with configurable REST API  that simulates flow of activities.
         /*Amount that has to be used in case of top-up the account*/
        "account-auto-top-up-amount" : "100.00", 
        /*How often to load money on customer account*/ 
-       "account-auto-top-up-time-frequency" : "1",
+       "account-auto-top-up-frequency" : "1",
        "account-auto-top-up-time-units" : "hour"
     }
 } 
