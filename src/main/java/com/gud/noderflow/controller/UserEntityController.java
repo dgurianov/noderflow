@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -44,7 +45,7 @@ public class UserEntityController {
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String postUserEntity(@RequestBody UserEntityAttributes request){
+    public String postUserEntity(@RequestBody @Valid UserEntityAttributes request){
         return "{\"new-user-id\" : \""+service.storeEntity(request)+"\"}";
     }
 }

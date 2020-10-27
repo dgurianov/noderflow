@@ -1,8 +1,10 @@
 package com.gud.noderflow.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.gud.noderflow.model.validators.ValidUserEntity;
 import lombok.Data;
 
+@ValidUserEntity
 @Data
 public class UserEntityAttributes {
     @JsonProperty("first-name")
