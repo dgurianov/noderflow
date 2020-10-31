@@ -1,7 +1,7 @@
 package com.gud.noderflow.service;
 
 import com.gud.noderflow.mapper.UserEntityMapper;
-import com.gud.noderflow.model.UserEntityAttributes;
+import com.gud.noderflow.model.users.UserEntityAttributes;
 import com.gud.noderflow.persistance.entity.UserEntity;
 import com.gud.noderflow.persistance.repository.UserEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +31,4 @@ public class UserEntityService {
         return ue.getId();
     }
 
-//    public List<TemplateAttributes> storeAllEntities(List<TemplateAttributes> body){
-//        repository.deleteAll();
-//        repository.saveAll(TemplateEntityToAttributesMapper.INSTANCE.toListTemplateEntity(body));
-//        return getAllEntities();
-//
-//    }
  }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 @Slf4j
 public class TemplateErrorController {
+    //TODO : rename or remove class
 /*
    NOT FOUND cannot be intercepted this way !!!!
 

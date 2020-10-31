@@ -17,6 +17,7 @@ import java.util.List;
 @RestController
 @Slf4j
 public class TemplateController {
+    //TODO : remove class
 
 //    @Autowired
 //    TemplateEntityService service;

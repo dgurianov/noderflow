@@ -1,7 +1,7 @@
 package com.gud.noderflow.controller;
 
 import com.gud.noderflow.config.EndpointURLs;
-import com.gud.noderflow.model.UserEntityAttributes;
+import com.gud.noderflow.model.users.UserEntityAttributes;
 import com.gud.noderflow.service.UserEntityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

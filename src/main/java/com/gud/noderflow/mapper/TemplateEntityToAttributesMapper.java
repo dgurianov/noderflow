@@ -10,6 +10,7 @@ import java.util.List;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE) //Skip all that is not mapped
 public interface TemplateEntityToAttributesMapper {
+    //TODO: REmove file
 
     TemplateEntityToAttributesMapper INSTANCE = Mappers.getMapper( TemplateEntityToAttributesMapper.class );
 

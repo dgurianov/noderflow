@@ -37,6 +37,9 @@ dependencies {
 	//Object mapping
 	implementation 'org.mapstruct:mapstruct:1.4.1.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.1.Final'
+
+	//Fabricate data
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
 }
 
 test {

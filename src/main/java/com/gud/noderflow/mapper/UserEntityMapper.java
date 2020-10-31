@@ -1,8 +1,6 @@
 package com.gud.noderflow.mapper;
 
-import com.gud.noderflow.model.TemplateAttributes;
-import com.gud.noderflow.model.UserEntityAttributes;
-import com.gud.noderflow.persistance.entity.TemplateEntity;
+import com.gud.noderflow.model.users.UserEntityAttributes;
 import com.gud.noderflow.persistance.entity.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

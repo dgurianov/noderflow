@@ -1,6 +1,6 @@
 package com.gud.noderflow.model.validators;
 
-import com.gud.noderflow.model.UserEntityAttributes;
+import com.gud.noderflow.model.users.UserEntityAttributes;
 import com.gud.noderflow.persistance.repository.UserContactsRepository;
 import com.gud.noderflow.persistance.repository.UserPaymentDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;

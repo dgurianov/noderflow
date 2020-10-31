@@ -1,4 +1,4 @@
-package com.gud.noderflow.model;
+package com.gud.noderflow.model.users;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

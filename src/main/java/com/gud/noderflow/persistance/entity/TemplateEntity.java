@@ -15,6 +15,7 @@ import javax.validation.constraints.Size;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class TemplateEntity extends EntitySupport {
+    //TODO: REmove file
 
     @Size(min = 4, message = "Name at least x chars")
     private String firstName;

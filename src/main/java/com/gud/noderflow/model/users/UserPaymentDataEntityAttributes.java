@@ -1,4 +1,4 @@
-package com.gud.noderflow.model;
+package com.gud.noderflow.model.users;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -15,7 +15,7 @@ public class UserPaymentDataEntityAttributes {
     private double accountAutoTopUpAmount;
 
     @JsonProperty("account-auto-top-up-frequency")
-    private long accountAutoTopUpFrequency;
+    private int accountAutoTopUpFrequency;
 
     @JsonProperty("account-auto-top-up-time-units")
     private String accountAutoTopUpTimeUnits;

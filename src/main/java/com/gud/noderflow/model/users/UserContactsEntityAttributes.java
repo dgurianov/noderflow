@@ -1,4 +1,4 @@
-package com.gud.noderflow.model;
+package com.gud.noderflow.model.users;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -9,5 +9,5 @@ public class UserContactsEntityAttributes {
     private String phone;
 
     @JsonProperty("address")
-    private UserAddressEntityAttributes paymentData;
+    private UserAddressEntityAttributes address;
 }

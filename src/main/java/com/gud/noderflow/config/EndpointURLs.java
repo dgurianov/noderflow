@@ -8,14 +8,16 @@ public class EndpointURLs {
 
     //Root
     public static final String ROOT = "/api";
+    public static final String BULK = "/bulk-create";
 
     //Endpoints
     public static final String USERS = ROOT + "/users";
-//    public static final String TEMPLATE_ENTITIES = TEMPLATE + "/template-entities";
+    public static final String BULK_CREATE_USERS = ROOT + BULK + "/users";
 
     public static String getUrls(){
         return String.join("\n",
-                USERS
+                USERS,
+                BULK_CREATE_USERS
         );
     }
 
