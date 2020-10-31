@@ -1,7 +1,10 @@
 package com.gud.noderflow.model.users;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
+
+import java.math.BigDecimal;
 
 @Data
 public class UserPaymentDataEntityAttributes {
@@ -9,10 +12,12 @@ public class UserPaymentDataEntityAttributes {
     private String accountNumber;
 
     @JsonProperty("account-balance")
-    private double accountBalance;
+    @JsonSerialize(using = MoneySerializer.class)
+    private BigDecimal accountBalance;
 
     @JsonProperty("account-auto-top-up-amount")
-    private double accountAutoTopUpAmount;
+    @JsonSerialize(using = MoneySerializer.class)
+    private BigDecimal accountAutoTopUpAmount;
 
     @JsonProperty("account-auto-top-up-frequency")
     private int accountAutoTopUpFrequency;

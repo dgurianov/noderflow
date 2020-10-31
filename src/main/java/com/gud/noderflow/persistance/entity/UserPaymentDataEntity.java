@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "USER_PAYMENT_DATA")
@@ -19,9 +20,9 @@ public class UserPaymentDataEntity extends EntitySupport {
     @Size(min = 12 , max = 12, message = "Account number has to be 12 digits")
     private String accountNumber;
 
-    private double accountBalance;
+    private BigDecimal accountBalance;
 
-    private double accountAutoTopUpAmount;
+    private BigDecimal accountAutoTopUpAmount;
 
     private long accountAutoTopUpNextTime;
 
