@@ -1,5 +1,8 @@
 package com.gud.noderflow.core;
 
+import com.gud.noderflow.core.publish.NoderflowEvent;
+import com.gud.noderflow.core.publish.kafka.KafkaEvent;
+import com.gud.noderflow.core.publish.kafka.KafkaPublisher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -25,6 +28,10 @@ public class BinWatcher implements ApplicationRunner {
 
     private ExecutorService executor;
 
+    @Autowired
+    @Qualifier("kafka-publisher")
+    private KafkaPublisher publisher;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         if(Objects.isNull(numberOfThreads)){
@@ -37,6 +44,7 @@ public class BinWatcher implements ApplicationRunner {
         while(true){
             BulkOrderTask order = taskBin.getNext();
             executor.submit(order);
+            publisher.publish(KafkaEvent.builder().withPayload("test").build());
             log.info("Processed order {}",order);
         }
 

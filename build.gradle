@@ -17,7 +17,7 @@ configurations {
 repositories {
 	mavenCentral()
 }
-
+//TODO: format cleanup
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -40,6 +40,9 @@ dependencies {
 
 	//Fabricate data
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+
+	//Kafka
+	implementation 'org.apache.kafka:kafka_2.13:2.6.0'
 }
 
 test {
