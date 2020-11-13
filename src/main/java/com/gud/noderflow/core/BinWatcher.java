@@ -1,8 +1,9 @@
 package com.gud.noderflow.core;
 
-import com.gud.noderflow.core.publish.NoderflowEvent;
-import com.gud.noderflow.core.publish.kafka.KafkaEvent;
+import com.gud.noderflow.core.publish.PublishSystem;
 import com.gud.noderflow.core.publish.kafka.KafkaPublisher;
+import com.gud.noderflow.model.NoderflowEvent;
+import com.gud.noderflow.model.transactions.MoneyTransaction;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,6 +12,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -44,7 +46,9 @@ public class BinWatcher implements ApplicationRunner {
         while(true){
             BulkOrderTask order = taskBin.getNext();
             executor.submit(order);
-            publisher.publish(KafkaEvent.builder().withPayload("test").build());
+            MoneyTransaction moneyTransaction = new MoneyTransaction(new BigDecimal(100.00), "000000001", "000000002");
+            NoderflowEvent<MoneyTransaction> mytop = new NoderflowEvent<>(PublishSystem.KAFKA, "mytop", moneyTransaction);
+            publisher.publish(mytop);
             log.info("Processed order {}",order);
         }
 

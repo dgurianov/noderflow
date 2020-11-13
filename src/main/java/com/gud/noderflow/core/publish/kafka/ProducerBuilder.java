@@ -5,6 +5,7 @@ import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.common.serialization.LongSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.Properties;
 
@@ -16,7 +17,7 @@ public class ProducerBuilder {
         props.put("bootstrap.servers", KafkaConfig.KAFKA_BROKERS);
         props.put("acks", "all");
         props.put("key.serializer", LongSerializer.class.getName());
-        props.put("value.serializer", StringSerializer.class.getName());
+        props.put("value.serializer", JsonSerializer.class.getName());
 
         return new KafkaProducer<Long, String>(props);
 
