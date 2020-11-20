@@ -1,6 +1,6 @@
 package com.gud.noderflow.core.publish.kafka;
 
-import com.gud.noderflow.model.transactions.MoneyTransaction;
+import com.gud.noderflow.model.attributes.transactions.MoneyTransaction;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +15,6 @@ import java.util.Map;
 
 @Configuration
 public class KafkaTemplateConfig {
-
 
     @Bean
     public ProducerFactory<String, MoneyTransaction>
@@ -41,7 +40,7 @@ public class KafkaTemplateConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, MoneyTransaction>   kafkaTemplate() {
+    public KafkaTemplate<String, MoneyTransaction> kafkaTemplate() {
         return new KafkaTemplate<>(
                 producerFactory());
     }

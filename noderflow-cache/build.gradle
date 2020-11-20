@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'com.gud.noderflow'
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':noderflow-model')
+    compile group: 'com.google.guava', name: 'guava', version: '30.0-jre'
+    implementation 'org.springframework:spring-context:5.2.10.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

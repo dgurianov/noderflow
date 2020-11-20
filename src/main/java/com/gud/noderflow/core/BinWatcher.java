@@ -1,9 +1,9 @@
 package com.gud.noderflow.core;
 
+import com.gud.noderflow.core.publish.NoderflowEvent;
 import com.gud.noderflow.core.publish.PublishSystem;
 import com.gud.noderflow.core.publish.kafka.KafkaPublisher;
-import com.gud.noderflow.model.NoderflowEvent;
-import com.gud.noderflow.model.transactions.MoneyTransaction;
+import com.gud.noderflow.model.attributes.transactions.MoneyTransaction;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

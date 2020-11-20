@@ -1,7 +1,7 @@
 package com.gud.noderflow.controller;
 
 import com.gud.noderflow.config.EndpointURLs;
-import com.gud.noderflow.model.users.UserEntityAttributes;
+import com.gud.noderflow.model.attributes.users.UserEntityAttributes;
 import com.gud.noderflow.service.UserEntityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,7 @@ public class UserEntityController {
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String postUserEntity(@RequestBody @Valid UserEntityAttributes request){
-        return "{\"new-user-id\" : \""+service.storeEntity(request)+"\"}";
+    public String postUserEntity(@RequestBody @Valid UserEntityAttributes attributes){
+        return "{\"new-user-id\" : \""+service.storeEntity(attributes)+"\"}";
     }
 }
