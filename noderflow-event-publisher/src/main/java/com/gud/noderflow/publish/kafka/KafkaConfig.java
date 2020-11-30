@@ -1,4 +1,4 @@
-package com.gud.noderflow.core.publish.kafka;
+package com.gud.noderflow.publish.kafka;
 //TODO: move values externally
 public interface KafkaConfig {
     public static String KAFKA_BROKERS = "192.168.99.100:9092";

@@ -1,9 +1,11 @@
 package com.gud.noderflow.core;
 
-import com.gud.noderflow.core.publish.NoderflowEvent;
-import com.gud.noderflow.core.publish.PublishSystem;
-import com.gud.noderflow.core.publish.kafka.KafkaPublisher;
+import com.gud.noderflow.cache.NoderflowCache;
 import com.gud.noderflow.model.attributes.transactions.MoneyTransaction;
+import com.gud.noderflow.model.attributes.users.UserEntityAttributes;
+import com.gud.noderflow.publish.NoderflowEvent;
+import com.gud.noderflow.publish.PublishSystem;
+import com.gud.noderflow.publish.kafka.KafkaPublisher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,6 +15,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -31,6 +34,9 @@ public class BinWatcher implements ApplicationRunner {
     private ExecutorService executor;
 
     @Autowired
+    NoderflowCache<UserEntityAttributes> cache;
+
+    @Autowired
     @Qualifier("kafka-publisher")
     private KafkaPublisher publisher;
 
@@ -46,9 +52,14 @@ public class BinWatcher implements ApplicationRunner {
         while(true){
             BulkOrderTask order = taskBin.getNext();
             executor.submit(order);
-            MoneyTransaction moneyTransaction = new MoneyTransaction(new BigDecimal(100.00), "000000001", "000000002");
-            NoderflowEvent<MoneyTransaction> mytop = new NoderflowEvent<>(PublishSystem.KAFKA, "mytop", moneyTransaction);
-            publisher.publish(mytop);
+            List<UserEntityAttributes> two =  cache.getTwoRandom();
+            if(two.size() < 2 ){
+                log.info("Not enough accounts in the cache");
+            }else {
+                MoneyTransaction moneyTransaction = new MoneyTransaction(new BigDecimal(100.00), two.get(0).getPaymentData().getAccountNumber(),two.get(1).getPaymentData().getAccountNumber());
+                NoderflowEvent<MoneyTransaction> mytop = new NoderflowEvent<>(PublishSystem.KAFKA, "mytop", moneyTransaction);
+                publisher.publish(mytop);
+            }
             log.info("Processed order {}",order);
         }
 

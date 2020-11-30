@@ -1,7 +1,7 @@
-package com.gud.noderflow.core.publish.kafka;
+package com.gud.noderflow.publish.kafka;
 
-import com.gud.noderflow.core.publish.EventPublisher;
-import com.gud.noderflow.core.publish.NoderflowEvent;
+import com.gud.noderflow.publish.EventPublisher;
+import com.gud.noderflow.publish.NoderflowEvent;
 import com.gud.noderflow.model.attributes.transactions.MoneyTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;

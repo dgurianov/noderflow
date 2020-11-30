@@ -1,10 +1,8 @@
-package com.gud.noderflow.core.publish.kafka;
+package com.gud.noderflow.publish.kafka;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.common.serialization.LongSerializer;
-import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.Properties;

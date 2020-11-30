@@ -10,4 +10,6 @@ public interface NoderflowCache<T> {
 
    public List<T> getAll();
 
+   public List<T> getTwoRandom();
+
 }

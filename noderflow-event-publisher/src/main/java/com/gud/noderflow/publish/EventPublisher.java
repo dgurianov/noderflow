@@ -1,4 +1,4 @@
-package com.gud.noderflow.core.publish;
+package com.gud.noderflow.publish;
 
 public interface EventPublisher {
     public void publish(NoderflowEvent event);

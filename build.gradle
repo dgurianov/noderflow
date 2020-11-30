@@ -23,6 +23,7 @@ dependencies {
 	implementation project(':noderflow-data-fabricator')
 	implementation project(':noderflow-model')
 	implementation project(':noderflow-correlation-id')
+	implementation project(':noderflow-event-publisher')
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	//Validate entities @Size .. etc..

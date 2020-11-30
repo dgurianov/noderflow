@@ -1,6 +1,5 @@
-package com.gud.noderflow.core.publish;
+package com.gud.noderflow.publish;
 
-import com.gud.noderflow.core.publish.PublishSystem;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

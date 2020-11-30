@@ -1,4 +1,4 @@
-package com.gud.noderflow.core.publish;
+package com.gud.noderflow.publish;
 
 public enum PublishSystem {
     KAFKA,ACTIVE_MQ;

@@ -1,4 +1,4 @@
-package com.gud.noderflow.core.publish.kafka;
+package com.gud.noderflow.publish.kafka;
 
 import com.gud.noderflow.model.attributes.transactions.MoneyTransaction;
 import org.apache.kafka.clients.producer.ProducerConfig;
