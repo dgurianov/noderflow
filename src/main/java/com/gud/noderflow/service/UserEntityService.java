@@ -1,34 +1,39 @@
 package com.gud.noderflow.service;
 
-import com.gud.noderflow.mapper.UserEntityMapper;
-import com.gud.noderflow.model.users.UserEntityAttributes;
-import com.gud.noderflow.persistance.entity.UserEntity;
-import com.gud.noderflow.persistance.repository.UserEntityRepository;
+import com.gud.noderflow.cache.NoderflowCache;
+import com.gud.noderflow.model.attributes.users.UserEntityAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserEntityService {
 
+    private long counter ;
+
     @Autowired
-    UserEntityRepository repository;
+    NoderflowCache<UserEntityAttributes> cache;
 
-    public UserEntityAttributes getEntityById(String id ){
-        return UserEntityMapper.INSTANCE.toUserEntityAttributes(
-        repository.findById(id).orElse(null)
-        );
+    @PostConstruct
+    private void init(){
+        counter = 0;
     }
 
-    public List<UserEntityAttributes> getAllEntities(){
-        return UserEntityMapper.INSTANCE.toListUserEntityAttributes(repository.findAll());
+    public UserEntityAttributes getEntityById(String id) {
+        return cache.get(id);
     }
 
-    public String storeEntity(UserEntityAttributes attributes){
-        UserEntity ue = UserEntityMapper.INSTANCE.toUserEntity(attributes);
-        repository.save(ue);
-        return ue.getId();
+    public List<UserEntityAttributes> getAllEntities() {
+        return cache.getAll();
     }
 
- }
+    public String storeEntity(UserEntityAttributes attributes) {
+        String uuid = UUID.randomUUID().toString();
+        cache.put(String.valueOf(++counter), attributes);
+        return uuid;
+    }
+
+}

@@ -17,15 +17,19 @@ configurations {
 repositories {
 	mavenCentral()
 }
-
+//TODO: format cleanup
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation project(':noderflow-cache')
+	implementation project(':noderflow-data-fabricator')
+	implementation project(':noderflow-model')
+	implementation project(':noderflow-correlation-id')
+	implementation project(':noderflow-event-publisher')
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
 	//Validate entities @Size .. etc..
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -34,12 +38,11 @@ dependencies {
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.8.0'
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.3'
 
-	//Object mapping
-	implementation 'org.mapstruct:mapstruct:1.4.1.Final'
-	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.1.Final'
-
 	//Fabricate data
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+
+	//Kafka
+	compile group: 'org.springframework.kafka', name: 'spring-kafka', version: '2.6.0'
 }
 
 test {
