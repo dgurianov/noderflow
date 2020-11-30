@@ -5,6 +5,9 @@ Version 0.0.1
 ###Description
 Application with configurable REST API  that simulates flow of activities. 
 
+### Configuration
+
+
 #####Api requirements
 
 1. Data
