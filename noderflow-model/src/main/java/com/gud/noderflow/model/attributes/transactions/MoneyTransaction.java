@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Data
 public class MoneyTransaction implements NoderflowTransactions{
+    private String correlationId;
     @JsonSerialize(using = MoneySerializer.class)
     private BigDecimal amount;
     private String accountFrom;

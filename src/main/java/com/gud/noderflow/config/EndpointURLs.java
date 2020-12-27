@@ -12,7 +12,12 @@ public class EndpointURLs {
 
     //Endpoints
     public static final String USERS = ROOT + "/users";
+    public static final String BALANCES = ROOT + "/balances";
+    public static final String FLOW = ROOT + "/flow";
+    public static final String START = "/start";
+    public static final String STOP = "/stop";
     public static final String BULK_CREATE_USERS = ROOT + BULK + "/users";
+
 
     public static String getUrls(){
         return String.join("\n",

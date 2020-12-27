@@ -15,14 +15,4 @@ public class UserPaymentDataEntityAttributes {
     @JsonSerialize(using = MoneySerializer.class)
     private BigDecimal accountBalance;
 
-    @JsonProperty("account-auto-top-up-amount")
-    @JsonSerialize(using = MoneySerializer.class)
-    private BigDecimal accountAutoTopUpAmount;
-
-    @JsonProperty("account-auto-top-up-frequency")
-    private int accountAutoTopUpFrequency;
-
-    @JsonProperty("account-auto-top-up-time-units")
-    private String accountAutoTopUpTimeUnits;
-
 }

@@ -2,7 +2,9 @@ package com.gud.noderflow.controller;
 
 import com.gud.noderflow.config.EndpointURLs;
 import com.gud.noderflow.model.attributes.users.UserEntityAttributes;
+import com.gud.noderflow.model.attributes.users.UserPaymentDataEntityAttributes;
 import com.gud.noderflow.service.UserEntityService;
+import com.gud.noderflow.service.UserPaymentDataEntityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -22,6 +24,10 @@ public class UserEntityController {
     @Autowired
     UserEntityService service;
 
+    @Autowired
+    UserPaymentDataEntityService paymentDataService;
+
+
 
     @RequestMapping(
             value = EndpointURLs.CURRENT_VERSION + EndpointURLs.USERS,
@@ -29,6 +35,14 @@ public class UserEntityController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public List<UserEntityAttributes> getTemplateEntities(){
         return service.getAllEntities();
+    }
+
+    @RequestMapping(
+            value = EndpointURLs.CURRENT_VERSION + EndpointURLs.BALANCES,
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<UserPaymentDataEntityAttributes> getBalances(){
+        return paymentDataService.getAllEntities();
     }
 
     @RequestMapping(

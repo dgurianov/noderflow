@@ -3,6 +3,7 @@ package com.gud.noderflow.publish.kafka;
 import com.gud.noderflow.model.attributes.transactions.MoneyTransaction;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -16,17 +17,18 @@ import java.util.Map;
 @Configuration
 public class KafkaTemplateConfig {
 
+    @Value("${noderflow.publish.kafka.brokers}")
+    private String KAFKA_BROKERS;
+
     @Bean
     public ProducerFactory<String, MoneyTransaction>
     producerFactory() {
-        // Create a map of a string
-        // and object
         Map<String, Object> config
                 = new HashMap<>();
 
         config.put(
                 ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                KafkaConfig.KAFKA_BROKERS);
+                KAFKA_BROKERS);
 
         config.put(
                 ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,

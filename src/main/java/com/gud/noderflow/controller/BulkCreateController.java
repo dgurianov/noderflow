@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @Slf4j
-public class BulkCreateEntitiesController {
+public class BulkCreateController {
 
     @Autowired
     BulkCreateUserEntitiesService service;
@@ -27,6 +27,6 @@ public class BulkCreateEntitiesController {
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public String bulkCreateUserEntities(@RequestBody @Valid BulkCreateUsersAttributes request){
         service.bulkCreate(request);
-        return "{\"new-user-ids\" : \"created\"}";
+        return "{\"response\" : \"created\"}";
     }
 }

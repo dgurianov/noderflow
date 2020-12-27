@@ -16,9 +16,9 @@ public class UserPaymentDataAttributesEnricher implements ObjectEnricher<UserPay
     public void enrich(UserPaymentDataEntityAttributes object) {
         object.setAccountNumber(paymentDataFabricator.getAccountNumber());
         object.setAccountBalance(paymentDataFabricator.getAccountBalance());
-        object.setAccountAutoTopUpAmount(paymentDataFabricator.getAccountTopUpAmount());
-        object.setAccountAutoTopUpFrequency(paymentDataFabricator.getTopUpFrequency());
+//        object.setAccountAutoTopUpAmount(paymentDataFabricator.getAccountTopUpAmount());
+//        object.setAccountAutoTopUpFrequency(paymentDataFabricator.getTopUpFrequency());
 //        object.setAccountAutoTopUpNextTime(paymentDataFabricator.getNextTimeToTheNextTopUp());
-        object.setAccountAutoTopUpTimeUnits("MINUTES");
+//        object.setAccountAutoTopUpTimeUnits("MINUTES");
     }
 }

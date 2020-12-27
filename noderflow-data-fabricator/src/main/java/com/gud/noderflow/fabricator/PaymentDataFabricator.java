@@ -19,7 +19,7 @@ public class PaymentDataFabricator {
     }
 
     public BigDecimal getAccountBalance(){
-        return BigDecimal.valueOf(rand.nextInt(100000));
+        return BigDecimal.valueOf(rand.nextInt(500));
     }
 
     public BigDecimal getAccountTopUpAmount(){
